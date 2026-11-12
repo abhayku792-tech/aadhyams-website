@@ -68,4 +68,41 @@ footer{background:var(--ink);color:#eee7d9;text-align:center;padding:36px 20px;f
 </main><footer>© 2026 AADHYAMS LIGHTS & HOME DECOR · MADE FOR BEAUTIFUL LIVING</footer>
 <div style="position:fixed;bottom:25px;right:15px;z-index:9999;display:flex;flex-direction:column;gap:10px">
 <a href="tel:+918595403090" style="background:#17130e;color:white;padding:15px 22px;border-radius:40px;text-decoration:none">📞 Call Now</a><a href="https://wa.me/918595403090" style="background:#25D366;color:white;padding:15px 22px;border-radius:40px;text-decoration:none">WhatsApp Chat</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const db = window.supabase.createClient(
+  "https://kqeklmcywlobjpkotzrs.supabase.co",
+  "sb_publishable_-APGx6kHG3vtKSxjrP6vww_B3iMWFcY"
+);
+
+document.querySelectorAll(".product").forEach(async (card) => {
+  const img = card.querySelector("img");
+  if (!img) return;
+
+  const slug = img.getAttribute("src")
+    .split("/")
+    .pop()
+    .replace(/\.[^.]+$/, "");
+
+  const info = card.querySelector(".product-info") || card;
+  const label = document.createElement("p");
+  label.textContent = "Loading views...";
+  info.appendChild(label);
+
+  const { error: trackError } = await db.rpc(
+    "track_product_view",
+    { p_product_slug: slug }
+  );
+
+  const { data, error } = await db.rpc(
+    "get_product_views",
+    { p_product_slug: slug }
+  );
+
+  label.textContent = error
+    ? "Views unavailable"
+    : "👁 " + data + " Views";
+});
+</script>
 </body></html>
