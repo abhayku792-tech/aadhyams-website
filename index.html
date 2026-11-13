@@ -36,6 +36,68 @@ h1{font-size:clamp(44px,5.6vw,76px);line-height:1.04;margin:20px 0}
 .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.benefit{border:1px solid var(--line);padding:28px}.benefit b{display:block;font:22px Georgia,serif;margin-bottom:10px}.benefit p{font-size:12px;line-height:1.8;color:var(--muted)}
 footer{background:var(--ink);color:#eee7d9;text-align:center;padding:36px 20px;font-size:11px;letter-spacing:.5px}
 @media(max-width:760px){.nav{padding:14px 18px}nav{display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:55px 8%}.hero img{min-height:320px;max-height:400px}.strip{grid-template-columns:1fr;gap:8px}.strip div{border:0;border-bottom:1px solid var(--line)}.cards,.benefits,.products{grid-template-columns:1fr}.section{padding:54px 6%}.heading h2{font-size:34px}.card img{height:260px}.product img{height:290px}}
+
+/* AADHYAMS MOBILE SHOPPING DESIGN */
+@media (max-width: 760px) {
+  .nav {
+    padding: 14px 18px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    padding: 35px 20px;
+  }
+
+  .section {
+    padding: 35px 14px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .product {
+    min-width: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .product img {
+    width: 100%;
+    height: 175px;
+    object-fit: contain;
+    padding: 5px;
+  }
+
+  .product-info {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .product h3 {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .order {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .catalogue {
+    padding: 35px 15px;
+  }
+}
 </style>
 </head>
 <body>
