@@ -196,4 +196,74 @@ document.querySelectorAll(".product").forEach(async (card) => {
     : "👁 " + data + " Views";
 });
 </script>
+
+<style>
+#welcome-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.welcome-card {
+  width: 100%;
+  max-width: 420px;
+  background: #17150f;
+  color: white;
+  text-align: center;
+  padding: 35px 22px;
+  border: 1px solid #d4af37;
+  border-radius: 18px;
+}
+.welcome-card h2 {
+  color: #e5c078;
+  font-size: 29px;
+  letter-spacing: 3px;
+}
+.welcome-card p {
+  line-height: 1.7;
+  color: #eee2ce;
+}
+.welcome-btn {
+  display: block;
+  padding: 16px 10px;
+  margin-top: 18px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+.follow-btn {
+  background: #16a34a;
+  color: white;
+}
+.continue-btn {
+  background: #d4af37;
+  color: #17150f;
+  border: none;
+  width: 100%;
+}
+</style>
+
+<div id="welcome-popup">
+  <div class="welcome-card">
+    <h2>AADHYAMS ✦</h2>
+    <p>WELCOME TO AADHYAMS</p>
+    <p>Follow us for latest lighting collections, new arrivals and special offers.</p>
+
+    <a class="welcome-btn follow-btn"
+       href="https://whatsapp.com/channel/0029Vb90Bey3wtb5cQf7RO3k"
+       target="_blank">
+       🟢 FOLLOW ON WHATSAPP
+    </a>
+
+    <button class="welcome-btn continue-btn"
+      onclick="document.getElementById('welcome-popup').style.display='none'">
+      ➜ CONTINUE TO WEBSITE
+    </button>
+  </div>
+</div>
 </body></html>
