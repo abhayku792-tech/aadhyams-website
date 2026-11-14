@@ -198,7 +198,7 @@ footer{background:var(--ink);color:#eee7d9;text-align:center;padding:36px 20px;f
 </select>
 
 <label for="cob-qty">Required Pieces</label>
-<input id="cob-qty" type="number" min="1" max="999" value="1">
+<input id="cob-qty" type="number" min="1" max="999" placeholder="Enter quantity">
 
 <p>Original Price: <span class="cob-old" id="cob-old">₹520</span></p>
 <p>Discount: <strong>40% OFF</strong></p>
@@ -223,8 +223,7 @@ footer{background:var(--ink);color:#eee7d9;text-align:center;padding:36px 20px;f
  function update(){
    let original=prices[watt.value];
    let offer=Math.round(original*0.60);
-   let count=Math.max(1,Math.min(999,parseInt(qty.value)||1));
-   qty.value=count;
+   let count = qty.value === "" ? 0 : Math.max(1, Math.min(999, parseInt(qty.value) || 1));
    old.textContent="₹"+original;
    price.textContent="₹"+offer;
    total.textContent="₹"+(offer*count);
