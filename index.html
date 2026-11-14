@@ -147,7 +147,102 @@ footer{background:var(--ink);color:#eee7d9;text-align:center;padding:36px 20px;f
 <article class="product"><img src="catalogue/467-PB.jpg" alt="467 PB black bathroom mirror light"><div class="product-info"><div class="model">Model 467-PB</div><h3>Black Bathroom Mirror Light</h3><div class="specs">12W · 50 cm · PB body colour · 3C LED · Standard packing 20 pcs</div><div class="price">₹2,200</div><a class="order" href="https://wa.me/918595403090?text=I%20am%20interested%20in%20Model%20467-PB">Enquire on WhatsApp</a></div></article>
 <article class="product"><img src="catalogue/767-GD.jpg" alt="767 GD gold linear LED wall lights"><div class="product-info"><div class="model">Model 767/GD</div><h3>Gold Linear LED Wall Light</h3><div class="specs">12W · 600 mm · GD + Profile · 3C LED</div><div class="price">₹1,800</div><a class="order" href="https://wa.me/918595403090?text=I%20am%20interested%20in%20Model%20767%2FGD">Enquire on WhatsApp</a></div></article>
 </div></div></section>
-<section class="catalogue" id="catalogue"><span class="kicker">Product catalogue</span><h2 style="font-size:42px;margin:14px 0">Find your perfect light.</h2><p>Browse the complete supplied LED wall sconces catalogue for additional models, specifications and prices. Contact AADHYAMS to confirm availability and delivery.</p><a class="btn" href="assets/LED WALL SCONES 7.26.01.pdf" target="_blank" rel="noopener">View complete catalogue PDF ↗</a></section>
+
+<style>
+.cob-section{padding:45px 16px;background:#111;color:#fff}
+.cob-section .inner{max-width:1160px;margin:auto}
+.cob-title{text-align:center;color:#d4af62}
+.cob-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.cob-card{background:#222;border:1px solid #b8954d;border-radius:12px;overflow:hidden}
+.cob-card img{width:100%;height:220px;object-fit:contain;background:#181818}
+.cob-card p{text-align:center;padding:10px}
+.cob-form{max-width:550px;margin:25px auto;padding:20px;background:#222;border:1px solid #b8954d;border-radius:12px}
+.cob-form label{display:block;margin:14px 0 7px}
+.cob-form select,.cob-form input{width:100%;padding:12px;border-radius:7px;border:1px solid #b8954d;background:#111;color:white}
+.cob-old{text-decoration:line-through;color:#aaa}
+.cob-new{color:#e4c477;font-size:23px;font-weight:bold}
+.cob-buy{width:100%;padding:15px;margin-top:18px;background:#d4af62;color:#111;border:0;border-radius:8px;font-weight:bold;font-size:16px}
+@media(max-width:600px){.cob-grid{grid-template-columns:1fr}.cob-card img{height:250px}}
+</style>
+
+<section class="cob-section" id="cob-led">
+<div class="inner">
+<h2 class="cob-title">PREMIUM COB LED – LX065</h2>
+<p style="text-align:center">Premium Quality | 40% OFF</p>
+
+<div class="cob-grid">
+<div class="cob-card">
+<img src="assets/Screenshot_20261114_095101.jpg" alt="Black COB LED">
+<p>BLACK TO BLACK</p>
+</div>
+<div class="cob-card">
+<img src="assets/Screenshot_20261114_095046.jpg" alt="Rose Gold COB LED">
+<p>BLACK TO ROSE GOLD</p>
+</div>
+</div>
+
+<div class="cob-form">
+<h3 style="color:#d4af62">Customize Your Order</h3>
+
+<label for="cob-watt">Select Watt</label>
+<select id="cob-watt">
+<option value="5W">5W</option>
+<option value="12W" selected>12W</option>
+<option value="18W">18W</option>
+</select>
+
+<label for="cob-colour">Select Colour</label>
+<select id="cob-colour">
+<option>Black-to-Black</option>
+<option>Black-to-Rose-Gold</option>
+</select>
+
+<label for="cob-qty">Required Pieces</label>
+<input id="cob-qty" type="number" min="1" max="999" value="1">
+
+<p>Original Price: <span class="cob-old" id="cob-old">₹520</span></p>
+<p>Discount: <strong>40% OFF</strong></p>
+<p>Offer Price: <span class="cob-new" id="cob-price">₹312</span></p>
+<h3>Total: <span class="cob-new" id="cob-total">₹312</span></h3>
+
+<button class="cob-buy" id="cob-buy">BUY NOW ON WHATSAPP</button>
+</div>
+</div>
+</section>
+
+<script>
+(function(){
+ const prices={"5W":430,"12W":520,"18W":820};
+ const watt=document.getElementById("cob-watt");
+ const colour=document.getElementById("cob-colour");
+ const qty=document.getElementById("cob-qty");
+ const old=document.getElementById("cob-old");
+ const price=document.getElementById("cob-price");
+ const total=document.getElementById("cob-total");
+
+ function update(){
+   let original=prices[watt.value];
+   let offer=Math.round(original*0.60);
+   let count=Math.max(1,Math.min(999,parseInt(qty.value)||1));
+   qty.value=count;
+   old.textContent="₹"+original;
+   price.textContent="₹"+offer;
+   total.textContent="₹"+(offer*count);
+ }
+ watt.addEventListener("change",update);
+ qty.addEventListener("input",update);
+
+ document.getElementById("cob-buy").addEventListener("click",function(){
+   update();
+   let offer=Math.round(prices[watt.value]*0.60);
+   let count=Number(qty.value);
+   let message="Hello AADHYAMS, I want to order COB LED LX065.\nWatt: "+watt.value+"\nColour: "+colour.value+"\nQuantity: "+count+" pieces\nPrice per piece: ₹"+offer+"\nTotal: ₹"+(offer*count);
+   window.open("https://wa.me/918595403090?text="+encodeURIComponent(message),"_blank");
+ });
+ update();
+})();
+</script>
+  <section class="catalogue" id="catalogue"><span class="kicker">Product catalogue</span><h2 style="font-size:42px;margin:14px 0">Find your perfect light.</h2><p>Browse the complete supplied LED wall sconces catalogue for additional models, specifications and prices. Contact AADHYAMS to confirm availability and delivery.</p><a class="btn" href="assets/LED WALL SCONES 7.26.01.pdf" target="_blank" rel="noopener">View complete catalogue PDF ↗</a></section>
 <p>
   <a class="catalogue-link"
    href="catalogue/AADHYAMS_Catalogue_with_Buy_Now.pdf"
